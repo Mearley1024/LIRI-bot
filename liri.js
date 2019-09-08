@@ -1,13 +1,13 @@
 
 
 require("dotenv").config();
-var Spotify = require('node-spotify-api');
+//var Spotify = require('node-spotify-api');
  var keys = require("./keys.js");
 var axios = require("axios");
 var moment = require("moment");
 var fs = require("fs");
 
-var spotify = new Spotify(keys.spotify);
+//var spotify = new Spotify(keys.spotify);
 
 var liriReturn = process.argv[2];
 var retrieve = process.argv[3];
@@ -51,9 +51,9 @@ axios.get("http://www.omdbapi.com/?t="+ retrieve + "&y=&plot=short&apikey=trilog
 var concertThis = function(){
  
   axios.get("https://rest.bandsintown.com/artists/" + retrieve + "/events?app_id=codingbootcamp").then(function(response) {      
-      console.log(response.data[0].venue.name);
-      console.log(response.data[0].venue.city);
-      console.log(response.data[0].datetime);
+      console.log(response.data.venue.name);
+      console.log(response.data.venue.city);
+      console.log(response.data.datetime);
   });
 }
 
@@ -66,9 +66,9 @@ switch(liriReturn) {
   break;
   }
   
- var spotifySong = function(){
-   
- }
+//var spotifySong = function(){
+
+ //}
 //spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
   //if (err) {
   //  return console.log('Error occurred: ' + err);
